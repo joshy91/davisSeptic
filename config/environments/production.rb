@@ -26,7 +26,8 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
+  config.assets.paths << Rails.root.join("vendor", "assets", "stylesheets")
   config.secret_key_base = ENV['secret_key_base']
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
@@ -110,4 +111,8 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   config.hosts << "www.davis-septic-environmental.com"
+  Rails.application.config.hosts << "www.davis-septic-environmental.com"
+  Rails.application.config.hosts << "davis-septic-environmental.com"
+  config.server_static_assets = true
+  config.public_file_server.enabled = true
 end
